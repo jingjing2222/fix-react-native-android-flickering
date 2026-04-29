@@ -1,0 +1,66 @@
+diff --git a/ReactAndroid/src/main/java/com/facebook/react/internal/featureflags/ReactNativeFeatureFlagsDefaults.kt b/ReactAndroid/src/main/java/com/facebook/react/internal/featureflags/ReactNativeFeatureFlagsDefaults.kt
+index b7e15d74090996458868d9ffe3ce18c906658e59..0678940c3f141cacb9d242ff1c9903141d4ff827 100644
+--- a/ReactAndroid/src/main/java/com/facebook/react/internal/featureflags/ReactNativeFeatureFlagsDefaults.kt
++++ b/ReactAndroid/src/main/java/com/facebook/react/internal/featureflags/ReactNativeFeatureFlagsDefaults.kt
+@@ -4,7 +4,7 @@
+  * This source code is licensed under the MIT license found in the
+  * LICENSE file in the root directory of this source tree.
+  *
+- * @generated SignedSource<<89c61520177334f93c65ff92c2fc74a6>>
++ * @generated SignedSource<<88fdeebd16ce0f4a7b1892c3cc9e3024>>
+  */
+ 
+ /**
+@@ -145,7 +145,7 @@ public open class ReactNativeFeatureFlagsDefaults : ReactNativeFeatureFlagsProvi
+ 
+   override fun hideOffscreenVirtualViewsOnIOS(): Boolean = false
+ 
+-  override fun overrideBySynchronousMountPropsAtMountingAndroid(): Boolean = false
++  override fun overrideBySynchronousMountPropsAtMountingAndroid(): Boolean = true
+ 
+   override fun perfIssuesEnabled(): Boolean = false
+ 
+diff --git a/ReactCommon/react/featureflags/ReactNativeFeatureFlagsDefaults.h b/ReactCommon/react/featureflags/ReactNativeFeatureFlagsDefaults.h
+index 75ba8e143e40bce101f6b1b839e6accd5c0ed7b6..07074823842dc149b8c798846c786cc435b50ff3 100644
+--- a/ReactCommon/react/featureflags/ReactNativeFeatureFlagsDefaults.h
++++ b/ReactCommon/react/featureflags/ReactNativeFeatureFlagsDefaults.h
+@@ -4,7 +4,7 @@
+  * This source code is licensed under the MIT license found in the
+  * LICENSE file in the root directory of this source tree.
+  *
+- * @generated SignedSource<<7f1c4037925fc37dcdcba51df968d503>>
++ * @generated SignedSource<<09b9b75a5ec0f4792eb28a6fb844c02e>>
+  */
+ 
+ /**
+@@ -272,7 +272,7 @@ class ReactNativeFeatureFlagsDefaults : public ReactNativeFeatureFlagsProvider {
+   }
+ 
+   bool overrideBySynchronousMountPropsAtMountingAndroid() override {
+-    return false;
++    return true;
+   }
+ 
+   bool perfIssuesEnabled() override {
+diff --git a/src/private/featureflags/ReactNativeFeatureFlags.js b/src/private/featureflags/ReactNativeFeatureFlags.js
+index a5d41dc0b7dc9ea7d0d5bdcce62c234b39c0a5eb..e4eb164ecefa73f84945ac8d4b11885b20603b99 100644
+--- a/src/private/featureflags/ReactNativeFeatureFlags.js
++++ b/src/private/featureflags/ReactNativeFeatureFlags.js
+@@ -4,7 +4,7 @@
+  * This source code is licensed under the MIT license found in the
+  * LICENSE file in the root directory of this source tree.
+  *
+- * @generated SignedSource<<03688450419694f6d3f4fc709df4de9a>>
++ * @generated SignedSource<<913fbe5a4e98082a44e1b650d5cd1d63>>
+  * @flow strict
+  * @noformat
+  */
+@@ -451,7 +451,7 @@ export const hideOffscreenVirtualViewsOnIOS: Getter<boolean> = createNativeFlagG
+ /**
+  * Override props at mounting with synchronously mounted (i.e. direct manipulation) props from Native Animated.
+  */
+-export const overrideBySynchronousMountPropsAtMountingAndroid: Getter<boolean> = createNativeFlagGetter('overrideBySynchronousMountPropsAtMountingAndroid', false);
++export const overrideBySynchronousMountPropsAtMountingAndroid: Getter<boolean> = createNativeFlagGetter('overrideBySynchronousMountPropsAtMountingAndroid', true);
+ /**
+  * Enable reporting Performance Issues (`detail.devtools.performanceIssue`). Displayed in the V2 Performance Monitor and the "Performance Issues" sub-panel in DevTools.
+  */
